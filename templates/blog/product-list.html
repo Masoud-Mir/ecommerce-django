@@ -1,0 +1,47 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% load render_partial %}
+
+
+{% block content %}
+	<section>
+		<div class="container">
+			<div class="row">
+
+				<div class="col-sm-9 padding-right">
+					<div class="features_items"><!--features_items-->
+                        {% for product in object_list %}
+						<div class="col-sm-4 pull-right">
+							{% include 'blog/partials/products_component_partial.html' with product=product %}
+						</div>
+                        {% endfor %}
+
+                        <div class="clearfix"></div>
+
+                    {% if is_paginated %}
+						<ul class="pagination">
+                        {% if page_obj.has_previous %}
+                            <li><a href="?page={{ page_obj.previous_page_number }}"><i class="fas fa-arrow-circle-right" style="font-family: FontAwesome"></i></a></li>
+                        {% endif %}
+                        {% for page in paginator.page_range %}
+                            {% if page == page_obj.number %}
+							    <li class="active"><a href="?page={{ page }}">{{ page }}</a></li>
+                            {% else %}
+                                <li><a href="?page={{ page }}">{{ page }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+						{% if page_obj.has_next %}
+                            <li><a href="?page={{ page_obj.next_page_number }}"><i class="fas fa-arrow-circle-left" style="font-family: FontAwesome"></i></a></li>
+                        {% endif %}
+						</ul>
+                    {% endif %}
+
+					</div><!--features_items-->
+				</div>
+
+                {% render_partial 'products:products_categories_partial' %}
+
+			</div>
+		</div>
+	</section>
+{% endblock %}

@@ -1,0 +1,42 @@
+{#<div class="product-image-wrapper">#}
+{#    <div class="single-products">#}
+{#        <div class="productinfo text-center">#}
+{#            <img height="250rem" src="{{ product.image.url }}" alt="" />#}
+{#            <h2>{{ product.price }} ريال</h2>#}
+{#            <p>{{ product.description }}</p>#}
+{#            <a href="{% url 'order:add_to_cart' %}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#        </div>#}
+{#        <div class="product-overlay">#}
+{#            <div class="overlay-content">#}
+{#                <h2>{{ product.price }} ريال</h2>#}
+{#                <p>{{ product.description }}</p>#}
+{#                <form method="post" action="{% url 'order:cart' %}">#}
+{#                    {% csrf_token %}#}
+{#                    {{ cart.product_id }}#}
+{#                    <label>تعداد :</label>#}
+{#                    {{ cart.amount }}#}
+{#                    <button type="submit" class="btn btn-default cart">#}
+{#                        <i class="fa fa-shopping-cart"></i>#}
+{#                        افـزودن به سبـد خریـد#}
+{#                    </button>#}
+{#                </form>#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#    <div class="choose">#}
+{#        <ul class="nav nav-pills nav-justified">#}
+{#            <li><a href=""><i class="fa fa-plus-square"></i>لیست علاقه مندی ها</a></li>#}
+{#            <li><a href="{{ product.get_absolute_url }}"><i class="fa fa-plus-square"></i>مشاهده</a></li>#}
+{#        </ul>#}
+{#    </div>#}
+{#</div>#}
+
+{% load ratings %}
+
+
+<div class="card top-product-card">
+    <div class="card-body"><span class="badge badge-success">Sale</span><a class="wishlist-btn" href="#"><i class="lni lni-heart"></i></a><a class="product-thumbnail d-block" href="{% url 'products:product-detail' product.id %}"><img class="mb-2" src="{{  product.image.url }}" alt="{{ product.title }}" style="height: 11rem;"></a><a class="product-title d-block" href="{% url 'products:product-detail' product.id %}">{{ product.title }}</a>
+        <p class="sale-price">{{ product.price }} تومان<span></span></p>
+        <div class="product-rating">{% ratings product %}</div><a class="btn btn-success btn-sm" href="{{ product.get_absolute_url }}"><i class="lni lni-eye"></i></a>
+    </div>
+</div>

@@ -1,0 +1,1237 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block title %}
+    صفحه اصلی | فروشگاه تن تن
+{% endblock %}
+
+{% block content %}
+{#	<section id="slider"><!--slider-->#}
+{#		<div class="container">#}
+{#			<div class="row">#}
+{#				<div class="col-sm-12"><div id="slider-carousel" class="carousel slide" data-ride="carousel">#}
+{#						<ol class="carousel-indicators">#}
+{#							{% for slide in slider %}#}
+{#                                <li data-target="#slider-carousel" data-slide-to="{{ slide.id }}" class="{{ forloop.first|yesno:'active,' }}"></li>#}
+{#                            {% endfor %}#}
+{#						</ol>#}
+{##}
+{#						<div class="carousel-inner">#}
+{#                            {% for slide in slider %}#}
+{#							    <div class="item {{ forloop.first|yesno:'active,' }}">#}
+{#                                    <div class="col-sm-6">#}
+{#                                        <h1>{{ slide.title }}</h1>#}
+{#                                        <p>{{ slide.description }}</p>#}
+{#                                        <button type="button" class="btn btn-default get">توضیحات بیشتر</button>#}
+{#                                    </div>#}
+{#                                    <div class="col-sm-6">#}
+{#                                        <img src="{{ slide.image.url }}" class="girl img-responsive" alt="{{ slide.title }}" width="350rem" height="350rem"/>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            {% endfor %}#}
+{##}
+{#						</div>#}
+{##}
+{#						<a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">#}
+{#							<i class="fa fa-angle-left"></i>#}
+{#						</a>#}
+{#						<a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">#}
+{#							<i class="fa fa-angle-right"></i>#}
+{#						</a>#}
+{#					</div>#}
+{##}
+{#				</div>#}
+{#			</div>#}
+{#		</div>#}
+{#	</section><!--/slider-->#}
+{##}
+{#	<section>#}
+{#		<div class="container">#}
+{#			<div class="row">#}
+{##}
+{#				<div class="recommended_items"><!--NewProduct_items-->#}
+{#						<h2 class="title text-center">پر فروش ترین محصولات</h2>#}
+{##}
+{#						<div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">#}
+{#							<div class="carousel-inner">#}
+{#								<div class="item active">#}
+{#                                    {% for product in object_list %}#}
+{#									<div class="col-sm-3">#}
+{#                                            <div class="product-image-wrapper">#}
+{#											<div class="single-products">#}
+{#												<div class="productinfo text-center">#}
+{#													<img height="250rem" src="{{ product.image.url }}" alt="" />#}
+{#													<h2>{{ product.price }}</h2>#}
+{#													<p>{{  product.title }}</p>#}
+{#													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خرید</a>#}
+{#												</div>#}
+{#											</div>#}
+{#										</div>#}
+{#									</div>#}
+{#									{% endfor %}#}
+{#								<div class="item">#}
+{#									<div class="col-sm-3">#}
+{#										<div class="product-image-wrapper">#}
+{#											<div class="single-products">#}
+{#												<div class="productinfo text-center">#}
+{#													<img src="images/home/Gallery.jpg" alt="" />#}
+{#													<h2>1.250.000 R</h2>#}
+{#													<p>توضیحات کوتاه محصول</p>#}
+{#													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خرید</a>#}
+{#												</div>#}
+{##}
+{#											</div>#}
+{#										</div>#}
+{#									</div>#}
+{#									<div class="col-sm-3">#}
+{#										<div class="product-image-wrapper">#}
+{#											<div class="single-products">#}
+{#												<div class="productinfo text-center">#}
+{#													<img src="images/home/Gallery.jpg" alt="" />#}
+{#													<h2>1.250.000 R</h2>#}
+{#													<p>توضیحات کوتاه محصول</p>#}
+{#													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خرید</a>#}
+{#												</div>#}
+{##}
+{#											</div>#}
+{#										</div>#}
+{#									</div>#}
+{#									<div class="col-sm-3">#}
+{#										<div class="product-image-wrapper">#}
+{#											<div class="single-products">#}
+{#												<div class="productinfo text-center">#}
+{#													<img src="images/home/Gallery.jpg" alt="" />#}
+{#													<h2>1.250.000 R</h2>#}
+{#													<p>توضیحات کوتاه محصول</p>#}
+{#													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خرید</a>#}
+{#												</div>#}
+{##}
+{#											</div>#}
+{#										</div>#}
+{#									</div>#}
+{#									<div class="col-sm-3">#}
+{#										<div class="product-image-wrapper">#}
+{#											<div class="single-products">#}
+{#												<div class="productinfo text-center">#}
+{#													<img src="images/home/Gallery.jpg" alt="" />#}
+{#													<h2>1.250.000 R</h2>#}
+{#													<p>توضیحات کوتاه محصول</p>#}
+{#													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خرید</a>#}
+{#												</div>#}
+{##}
+{#											</div>#}
+{#										</div>#}
+{#									</div>#}
+{#								</div>#}
+{#							</div>#}
+{#							 <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">#}
+{#								<i class="fa fa-angle-left"></i>#}
+{#							  </a>#}
+{#							  <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">#}
+{#								<i class="fa fa-angle-right"></i>#}
+{#							  </a>#}
+{#						</div>#}
+{#					</div><!--/NewProduct_items-->#}
+{##}
+{#				<div class="col-sm-12 padding-right">#}
+{#					<div class="features_items"><!--RetailSale_items-->#}
+{#						<a href="shop-2.html"><h2 class="title text-center">فـروش خـرده</h2></a>#}
+{#						<div id="new-item-carousel" class="carousel slide" data-ride="carousel">#}
+{#						<div class="carousel-inner">#}
+{#						<div class="item active">#}
+{#							<div class="col-sm-3">#}
+{#								<div class="product-image-wrapper">#}
+{#									<div class="single-products">#}
+{#											<div class="productinfo text-center">#}
+{#												<img src="images/home/product.jpg" alt="" />#}
+{#												<h2>2.500.000 R</h2>#}
+{#												<p>توضیحات کوتاه محصـول</p>#}
+{#												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#											</div>#}
+{#											<div class="product-overlay">#}
+{#												<div class="overlay-content">#}
+{#													<h2>2.500.000 R</h2>#}
+{#													<p>توضیحات کوتاه محصـول</p>#}
+{#													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#												</div>#}
+{#											</div>#}
+{#									</div>#}
+{#									<div class="choose">#}
+{#										<ul class="nav nav-pills nav-justified">#}
+{#											<li>#}
+{#												<a href="#">#}
+{#													<i class="fa fa-plus-square"></i>لیست علاقه مندی ها#}
+{#												</a>#}
+{#											</li>#}
+{#											<li><a href="#"><i class="fa fa-plus-square"></i>مقایسه</a></li>#}
+{#										</ul>#}
+{#									</div>#}
+{#								</div>#}
+{#							</div>#}
+{#							<div class="col-sm-3">#}
+{#								<div class="product-image-wrapper">#}
+{#									<div class="single-products">#}
+{#											<div class="productinfo text-center">#}
+{#												<img src="images/home/product.jpg" alt="" />#}
+{#												<h2>2.500.000 R</h2>#}
+{#												<p>توضیحات کوتاه محصـول</p>#}
+{#												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#											</div>#}
+{#											<div class="product-overlay">#}
+{#												<div class="overlay-content">#}
+{#													<h2>2.500.000 R</h2>#}
+{#													<p>توضیحات کوتاه محصـول</p>#}
+{#													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#												</div>#}
+{#											</div>#}
+{#									</div>#}
+{#									<div class="choose">#}
+{#										<ul class="nav nav-pills nav-justified">#}
+{#											<li>#}
+{#												<a href="#">#}
+{#													<i class="fa fa-plus-square"></i>لیست علاقه مندی ها#}
+{#												</a>#}
+{#											</li>#}
+{#											<li><a href="#"><i class="fa fa-plus-square"></i>مقایسه</a></li>#}
+{#										</ul>#}
+{#									</div>#}
+{#								</div>#}
+{#							</div>#}
+{#							<div class="col-sm-3">#}
+{#								<div class="product-image-wrapper">#}
+{#									<div class="single-products">#}
+{#											<div class="productinfo text-center">#}
+{#												<img src="images/home/product.jpg" alt="" />#}
+{#												<h2>2.500.000 R</h2>#}
+{#												<p>توضیحات کوتاه محصـول</p>#}
+{#												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#											</div>#}
+{#											<div class="product-overlay">#}
+{#												<div class="overlay-content">#}
+{#													<h2>2.500.000 R</h2>#}
+{#													<p>توضیحات کوتاه محصـول</p>#}
+{#													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#												</div>#}
+{#											</div>#}
+{#									</div>#}
+{#									<div class="choose">#}
+{#										<ul class="nav nav-pills nav-justified">#}
+{#											<li>#}
+{#												<a href="#">#}
+{#													<i class="fa fa-plus-square"></i>لیست علاقه مندی ها#}
+{#												</a>#}
+{#											</li>#}
+{#											<li><a href="#"><i class="fa fa-plus-square"></i>مقایسه</a></li>#}
+{#										</ul>#}
+{#									</div>#}
+{#								</div>#}
+{#							</div>#}
+{#							<div class="col-sm-3">#}
+{#								<div class="product-image-wrapper">#}
+{#									<div class="single-products">#}
+{#											<div class="productinfo text-center">#}
+{#												<img src="images/home/product.jpg" alt="" />#}
+{#												<h2>2.500.000 R</h2>#}
+{#												<p>توضیحات کوتاه محصـول</p>#}
+{#												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#											</div>#}
+{#											<div class="product-overlay">#}
+{#												<div class="overlay-content">#}
+{#													<h2>2.500.000 R</h2>#}
+{#													<p>توضیحات کوتاه محصـول</p>#}
+{#													<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#												</div>#}
+{#											</div>#}
+{#									</div>#}
+{#									<div class="choose">#}
+{#										<ul class="nav nav-pills nav-justified">#}
+{#											<li>#}
+{#												<a href="#">#}
+{#													<i class="fa fa-plus-square"></i>لیست علاقه مندی ها#}
+{#												</a>#}
+{#											</li>#}
+{#											<li><a href="#"><i class="fa fa-plus-square"></i>مقایسه</a></li>#}
+{#										</ul>#}
+{#									</div>#}
+{#								</div>#}
+{#							</div>#}
+{#						</div>#}
+{#						<div class="item">#}
+{#						<div class="col-sm-3">#}
+{#							<div class="product-image-wrapper">#}
+{#								<div class="single-products">#}
+{#										<div class="productinfo text-center">#}
+{#											<img src="images/home/product.jpg" alt="" />#}
+{#											<h2>2.500.000 R</h2>#}
+{#											<p>توضیحات کوتاه محصـول</p>#}
+{#											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#										</div>#}
+{#										<div class="product-overlay">#}
+{#											<div class="overlay-content">#}
+{#												<h2>2.500.000 R</h2>#}
+{#												<p>توضیحات کوتاه محصـول</p>#}
+{#												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#											</div>#}
+{#										</div>#}
+{#								</div>#}
+{#								<div class="choose">#}
+{#									<ul class="nav nav-pills nav-justified">#}
+{#										<li>#}
+{#											<a href="#">#}
+{#												<i class="fa fa-plus-square"></i>لیست علاقه مندی ها#}
+{#											</a>#}
+{#										</li>#}
+{#										<li><a href="#"><i class="fa fa-plus-square"></i>مقایسه</a></li>#}
+{#									</ul>#}
+{#								</div>#}
+{#							</div>#}
+{#						</div>#}
+{#						<div class="col-sm-3">#}
+{#							<div class="product-image-wrapper">#}
+{#								<div class="single-products">#}
+{#										<div class="productinfo text-center">#}
+{#											<img src="images/home/product.jpg" alt="" />#}
+{#											<h2>2.500.000 R</h2>#}
+{#											<p>توضیحات کوتاه محصـول</p>#}
+{#											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#										</div>#}
+{#										<div class="product-overlay">#}
+{#											<div class="overlay-content">#}
+{#												<h2>2.500.000 R</h2>#}
+{#												<p>توضیحات کوتاه محصـول</p>#}
+{#												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#											</div>#}
+{#										</div>#}
+{#								</div>#}
+{#								<div class="choose">#}
+{#									<ul class="nav nav-pills nav-justified">#}
+{#										<li>#}
+{#											<a href="#">#}
+{#												<i class="fa fa-plus-square"></i>لیست علاقه مندی ها#}
+{#											</a>#}
+{#										</li>#}
+{#										<li><a href="#"><i class="fa fa-plus-square"></i>مقایسه</a></li>#}
+{#									</ul>#}
+{#								</div>#}
+{#							</div>#}
+{#						</div>#}
+{#						<div class="col-sm-3">#}
+{#							<div class="product-image-wrapper">#}
+{#								<div class="single-products">#}
+{#										<div class="productinfo text-center">#}
+{#											<img src="images/home/product.jpg" alt="" />#}
+{#											<h2>2.500.000 R</h2>#}
+{#											<p>توضیحات کوتاه محصـول</p>#}
+{#											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#										</div>#}
+{#										<div class="product-overlay">#}
+{#											<div class="overlay-content">#}
+{#												<h2>2.500.000 R</h2>#}
+{#												<p>توضیحات کوتاه محصـول</p>#}
+{#												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#											</div>#}
+{#										</div>#}
+{#								</div>#}
+{#								<div class="choose">#}
+{#									<ul class="nav nav-pills nav-justified">#}
+{#										<li>#}
+{#											<a href="#">#}
+{#												<i class="fa fa-plus-square"></i>لیست علاقه مندی ها#}
+{#											</a>#}
+{#										</li>#}
+{#										<li><a href="#"><i class="fa fa-plus-square"></i>مقایسه</a></li>#}
+{#									</ul>#}
+{#								</div>#}
+{#							</div>#}
+{#						</div>#}
+{#						<div class="col-sm-3">#}
+{#							<div class="product-image-wrapper">#}
+{#								<div class="single-products">#}
+{#										<div class="productinfo text-center">#}
+{#											<img src="images/home/product.jpg" alt="" />#}
+{#											<h2>2.500.000 R</h2>#}
+{#											<p>توضیحات کوتاه محصـول</p>#}
+{#											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#										</div>#}
+{#										<div class="product-overlay">#}
+{#											<div class="overlay-content">#}
+{#												<h2>2.500.000 R</h2>#}
+{#												<p>توضیحات کوتاه محصـول</p>#}
+{#												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#											</div>#}
+{#										</div>#}
+{#								</div>#}
+{#								<div class="choose">#}
+{#									<ul class="nav nav-pills nav-justified">#}
+{#										<li>#}
+{#											<a href="#">#}
+{#												<i class="fa fa-plus-square"></i>لیست علاقه مندی ها#}
+{#											</a>#}
+{#										</li>#}
+{#										<li><a href="#"><i class="fa fa-plus-square"></i>مقایسه</a></li>#}
+{#									</ul>#}
+{#								</div>#}
+{#							</div>#}
+{#						</div>#}
+{#						</div>#}
+{#					</div>#}
+{#							<a class="left recommended-item-control" href="#new-item-carousel" data-slide="prev">#}
+{#								<i class="fa fa-angle-left"></i>#}
+{#							  </a>#}
+{#							  <a class="right recommended-item-control" href="#new-item-carousel" data-slide="next">#}
+{#								<i class="fa fa-angle-right"></i>#}
+{#							  </a>#}
+{#					</div>#}
+{#					</div><!--RetailSale_items-->#}
+{##}
+{#					<div class="features_items"><!--WholeSale_items-->#}
+{#						<a href="shop.html"><h2 class="title text-center">فـروش عـمده</h2></a>#}
+{#						<div id="major-item-carousel" class="carousel slide" data-ride="carousel">#}
+{#						<div class="carousel-inner">#}
+{#						<div class="item active">#}
+{#						<div class="col-sm-3">#}
+{#							<div class="product-image-wrapper">#}
+{#								<div class="single-products">#}
+{#										<div class="productinfo text-center">#}
+{#											<img src="images/home/product.jpg" alt="" />#}
+{#											<h2>2.500.000 R</h2>#}
+{#											<p>توضیحات کوتاه محصـول</p>#}
+{#											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#										</div>#}
+{#										<div class="product-overlay">#}
+{#											<div class="overlay-content">#}
+{#												<h2>2.500.000 R</h2>#}
+{#												<p>توضیحات کوتاه محصـول</p>#}
+{#												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#											</div>#}
+{#										</div>#}
+{#								</div>#}
+{#								<div class="choose">#}
+{#									<ul class="nav nav-pills nav-justified">#}
+{#										<li>#}
+{#											<a href="#">#}
+{#												<i class="fa fa-plus-square"></i>لیست علاقه مندی ها#}
+{#											</a>#}
+{#										</li>#}
+{#										<li><a href="#"><i class="fa fa-plus-square"></i>مقایسه</a></li>#}
+{#									</ul>#}
+{#								</div>#}
+{#							</div>#}
+{#						</div>#}
+{#						<div class="col-sm-3">#}
+{#							<div class="product-image-wrapper">#}
+{#								<div class="single-products">#}
+{#										<div class="productinfo text-center">#}
+{#											<img src="images/home/product.jpg" alt="" />#}
+{#											<h2>2.500.000 R</h2>#}
+{#											<p>توضیحات کوتاه محصـول</p>#}
+{#											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#										</div>#}
+{#										<div class="product-overlay">#}
+{#											<div class="overlay-content">#}
+{#												<h2>2.500.000 R</h2>#}
+{#												<p>توضیحات کوتاه محصـول</p>#}
+{#												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#											</div>#}
+{#										</div>#}
+{#								</div>#}
+{#								<div class="choose">#}
+{#									<ul class="nav nav-pills nav-justified">#}
+{#										<li>#}
+{#											<a href="#">#}
+{#												<i class="fa fa-plus-square"></i>لیست علاقه مندی ها#}
+{#											</a>#}
+{#										</li>#}
+{#										<li><a href="#"><i class="fa fa-plus-square"></i>مقایسه</a></li>#}
+{#									</ul>#}
+{#								</div>#}
+{#							</div>#}
+{#						</div><div class="col-sm-3">#}
+{#							<div class="product-image-wrapper">#}
+{#								<div class="single-products">#}
+{#										<div class="productinfo text-center">#}
+{#											<img src="images/home/product.jpg" alt="" />#}
+{#											<h2>2.500.000 R</h2>#}
+{#											<p>توضیحات کوتاه محصـول</p>#}
+{#											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#										</div>#}
+{#										<div class="product-overlay">#}
+{#											<div class="overlay-content">#}
+{#												<h2>2.500.000 R</h2>#}
+{#												<p>توضیحات کوتاه محصـول</p>#}
+{#												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#											</div>#}
+{#										</div>#}
+{#								</div>#}
+{#								<div class="choose">#}
+{#									<ul class="nav nav-pills nav-justified">#}
+{#										<li>#}
+{#											<a href="#">#}
+{#												<i class="fa fa-plus-square"></i>لیست علاقه مندی ها#}
+{#											</a>#}
+{#										</li>#}
+{#										<li><a href="#"><i class="fa fa-plus-square"></i>مقایسه</a></li>#}
+{#									</ul>#}
+{#								</div>#}
+{#							</div>#}
+{#						</div><div class="col-sm-3">#}
+{#							<div class="product-image-wrapper">#}
+{#								<div class="single-products">#}
+{#										<div class="productinfo text-center">#}
+{#											<img src="images/home/product.jpg" alt="" />#}
+{#											<h2>2.500.000 R</h2>#}
+{#											<p>توضیحات کوتاه محصـول</p>#}
+{#											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#										</div>#}
+{#										<div class="product-overlay">#}
+{#											<div class="overlay-content">#}
+{#												<h2>2.500.000 R</h2>#}
+{#												<p>توضیحات کوتاه محصـول</p>#}
+{#												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#											</div>#}
+{#										</div>#}
+{#								</div>#}
+{#								<div class="choose">#}
+{#									<ul class="nav nav-pills nav-justified">#}
+{#										<li>#}
+{#											<a href="#">#}
+{#												<i class="fa fa-plus-square"></i>لیست علاقه مندی ها#}
+{#											</a>#}
+{#										</li>#}
+{#										<li><a href="#"><i class="fa fa-plus-square"></i>مقایسه</a></li>#}
+{#									</ul>#}
+{#								</div>#}
+{#							</div>#}
+{#						</div>#}
+{#						</div>#}
+{#						<div class="item">#}
+{#						<div class="col-sm-3">#}
+{#							<div class="product-image-wrapper">#}
+{#								<div class="single-products">#}
+{#										<div class="productinfo text-center">#}
+{#											<img src="images/home/product.jpg" alt="" />#}
+{#											<h2>2.500.000 R</h2>#}
+{#											<p>توضیحات کوتاه محصـول</p>#}
+{#											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#										</div>#}
+{#										<div class="product-overlay">#}
+{#											<div class="overlay-content">#}
+{#												<h2>2.500.000 R</h2>#}
+{#												<p>توضیحات کوتاه محصـول</p>#}
+{#												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#											</div>#}
+{#										</div>#}
+{#								</div>#}
+{#								<div class="choose">#}
+{#									<ul class="nav nav-pills nav-justified">#}
+{#										<li>#}
+{#											<a href="#">#}
+{#												<i class="fa fa-plus-square"></i>لیست علاقه مندی ها#}
+{#											</a>#}
+{#										</li>#}
+{#										<li><a href="#"><i class="fa fa-plus-square"></i>مقایسه</a></li>#}
+{#									</ul>#}
+{#								</div>#}
+{#							</div>#}
+{#						</div>#}
+{#						<div class="col-sm-3">#}
+{#							<div class="product-image-wrapper">#}
+{#								<div class="single-products">#}
+{#										<div class="productinfo text-center">#}
+{#											<img src="images/home/product.jpg" alt="" />#}
+{#											<h2>2.500.000 R</h2>#}
+{#											<p>توضیحات کوتاه محصـول</p>#}
+{#											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#										</div>#}
+{#										<div class="product-overlay">#}
+{#											<div class="overlay-content">#}
+{#												<h2>2.500.000 R</h2>#}
+{#												<p>توضیحات کوتاه محصـول</p>#}
+{#												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#											</div>#}
+{#										</div>#}
+{#								</div>#}
+{#								<div class="choose">#}
+{#									<ul class="nav nav-pills nav-justified">#}
+{#										<li>#}
+{#											<a href="#">#}
+{#												<i class="fa fa-plus-square"></i>لیست علاقه مندی ها#}
+{#											</a>#}
+{#										</li>#}
+{#										<li><a href="#"><i class="fa fa-plus-square"></i>مقایسه</a></li>#}
+{#									</ul>#}
+{#								</div>#}
+{#							</div>#}
+{#						</div>#}
+{#						<div class="col-sm-3">#}
+{#							<div class="product-image-wrapper">#}
+{#								<div class="single-products">#}
+{#										<div class="productinfo text-center">#}
+{#											<img src="images/home/product.jpg" alt="" />#}
+{#											<h2>2.500.000 R</h2>#}
+{#											<p>توضیحات کوتاه محصـول</p>#}
+{#											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#										</div>#}
+{#										<div class="product-overlay">#}
+{#											<div class="overlay-content">#}
+{#												<h2>2.500.000 R</h2>#}
+{#												<p>توضیحات کوتاه محصـول</p>#}
+{#												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#											</div>#}
+{#										</div>#}
+{#								</div>#}
+{#								<div class="choose">#}
+{#									<ul class="nav nav-pills nav-justified">#}
+{#										<li>#}
+{#											<a href="#">#}
+{#												<i class="fa fa-plus-square"></i>لیست علاقه مندی ها#}
+{#											</a>#}
+{#										</li>#}
+{#										<li><a href="#"><i class="fa fa-plus-square"></i>مقایسه</a></li>#}
+{#									</ul>#}
+{#								</div>#}
+{#							</div>#}
+{#						</div>#}
+{#						<div class="col-sm-3">#}
+{#							<div class="product-image-wrapper">#}
+{#								<div class="single-products">#}
+{#										<div class="productinfo text-center">#}
+{#											<img src="images/home/product.jpg" alt="" />#}
+{#											<h2>2.500.000 R</h2>#}
+{#											<p>توضیحات کوتاه محصـول</p>#}
+{#											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#										</div>#}
+{#										<div class="product-overlay">#}
+{#											<div class="overlay-content">#}
+{#												<h2>2.500.000 R</h2>#}
+{#												<p>توضیحات کوتاه محصـول</p>#}
+{#												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#											</div>#}
+{#										</div>#}
+{#								</div>#}
+{#								<div class="choose">#}
+{#									<ul class="nav nav-pills nav-justified">#}
+{#										<li>#}
+{#											<a href="#">#}
+{#												<i class="fa fa-plus-square"></i>لیست علاقه مندی ها#}
+{#											</a>#}
+{#										</li>#}
+{#										<li><a href="#"><i class="fa fa-plus-square"></i>مقایسه</a></li>#}
+{#									</ul>#}
+{#								</div>#}
+{#							</div>#}
+{#						</div>#}
+{#						</div>#}
+{#					</div>#}
+{#							<a class="left recommended-item-control" href="#major-item-carousel" data-slide="prev">#}
+{#								<i class="fa fa-angle-left"></i>#}
+{#							  </a>#}
+{#							  <a class="right recommended-item-control" href="#major-item-carousel" data-slide="next">#}
+{#								<i class="fa fa-angle-right"></i>#}
+{#							  </a>#}
+{#					</div>#}
+{#					</div><!--WholeSale_items-->#}
+{##}
+{#					<div class="category-tab"><!--category-tab-->#}
+{#						<div class="col-sm-12">#}
+{#							<ul class="nav nav-tabs">#}
+{#								<li class="active"><a href="#Tab_001" data-toggle="tab">گـروه محصولات 1</a></li>#}
+{#								<li><a href="#Tab_002" data-toggle="tab">گـروه محصولات 2</a></li>#}
+{#								<li><a href="#Tab_003" data-toggle="tab">گـروه محصولات 3</a></li>#}
+{#								<li><a href="#Tab_004" data-toggle="tab">گـروه محصولات 4</a></li>#}
+{#								<li><a href="#Tab_005" data-toggle="tab">گـروه محصولات 5</a></li>#}
+{#							</ul>#}
+{#						</div>#}
+{#						<div class="tab-content">#}
+{#							<div class="tab-pane fade active in" id="Tab_001" >#}
+{#								<div class="col-sm-3">#}
+{#									<div class="product-image-wrapper">#}
+{#										<div class="single-products">#}
+{#											<div class="productinfo text-center">#}
+{#												<img src="images/home/Tabs.png" alt="" />#}
+{#												<h2>560.000 ريال</h2>#}
+{#												<p>توضیحات کوتاه محصول</p>#}
+{#												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#											</div>#}
+{##}
+{#										</div>#}
+{#									</div>#}
+{#								</div>#}
+{#								<div class="col-sm-3">#}
+{#									<div class="product-image-wrapper">#}
+{#										<div class="single-products">#}
+{#											<div class="productinfo text-center">#}
+{#												<img src="images/home/Tabs.png" alt="" />#}
+{#												<h2>560.000 ريال</h2>#}
+{#												<p>توضیحات کوتاه محصول</p>#}
+{#												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#											</div>#}
+{##}
+{#										</div>#}
+{#									</div>#}
+{#								</div>#}
+{#								<div class="col-sm-3">#}
+{#									<div class="product-image-wrapper">#}
+{#										<div class="single-products">#}
+{#											<div class="productinfo text-center">#}
+{#												<img src="images/home/Tabs.png" alt="" />#}
+{#												<h2>560.000 ريال</h2>#}
+{#												<p>توضیحات کوتاه محصول</p>#}
+{#												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#											</div>#}
+{##}
+{#										</div>#}
+{#									</div>#}
+{#								</div>#}
+{#								<div class="col-sm-3">#}
+{#									<div class="product-image-wrapper">#}
+{#										<div class="single-products">#}
+{#											<div class="productinfo text-center">#}
+{#												<img src="images/home/Tabs.png" alt="" />#}
+{#												<h2>560.000 ريال</h2>#}
+{#												<p>توضیحات کوتاه محصول</p>#}
+{#												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#											</div>#}
+{##}
+{#										</div>#}
+{#									</div>#}
+{#								</div>#}
+{#							</div>#}
+{##}
+{#							<div class="tab-pane fade" id="Tab_002" >#}
+{#								<div class="col-sm-3">#}
+{#									<div class="product-image-wrapper">#}
+{#										<div class="single-products">#}
+{#											<div class="productinfo text-center">#}
+{#												<img src="images/home/Tabs.png" alt="" />#}
+{#												<h2>560.000 ريال</h2>#}
+{#												<p>توضیحات کوتاه محصول</p>#}
+{#												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#											</div>#}
+{##}
+{#										</div>#}
+{#									</div>#}
+{#								</div>#}
+{#								<div class="col-sm-3">#}
+{#									<div class="product-image-wrapper">#}
+{#										<div class="single-products">#}
+{#											<div class="productinfo text-center">#}
+{#												<img src="images/home/Tabs.png" alt="" />#}
+{#												<h2>560.000 ريال</h2>#}
+{#												<p>توضیحات کوتاه محصول</p>#}
+{#												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#											</div>#}
+{##}
+{#										</div>#}
+{#									</div>#}
+{#								</div>#}
+{#								<div class="col-sm-3">#}
+{#									<div class="product-image-wrapper">#}
+{#										<div class="single-products">#}
+{#											<div class="productinfo text-center">#}
+{#												<img src="images/home/Tabs.png" alt="" />#}
+{#												<h2>560.000 ريال</h2>#}
+{#												<p>توضیحات کوتاه محصول</p>#}
+{#												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#											</div>#}
+{##}
+{#										</div>#}
+{#									</div>#}
+{#								</div>#}
+{#								<div class="col-sm-3">#}
+{#									<div class="product-image-wrapper">#}
+{#										<div class="single-products">#}
+{#											<div class="productinfo text-center">#}
+{#												<img src="images/home/Tabs.png" alt="" />#}
+{#												<h2>560.000 ريال</h2>#}
+{#												<p>توضیحات کوتاه محصول</p>#}
+{#												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#											</div>#}
+{##}
+{#										</div>#}
+{#									</div>#}
+{#								</div>#}
+{#							</div>#}
+{##}
+{#							<div class="tab-pane fade" id="Tab_003" >#}
+{#								<div class="col-sm-3">#}
+{#									<div class="product-image-wrapper">#}
+{#										<div class="single-products">#}
+{#											<div class="productinfo text-center">#}
+{#												<img src="images/home/Tabs.png" alt="" />#}
+{#												<h2>560.000 ريال</h2>#}
+{#												<p>توضیحات کوتاه محصول</p>#}
+{#												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#											</div>#}
+{##}
+{#										</div>#}
+{#									</div>#}
+{#								</div>#}
+{#								<div class="col-sm-3">#}
+{#									<div class="product-image-wrapper">#}
+{#										<div class="single-products">#}
+{#											<div class="productinfo text-center">#}
+{#												<img src="images/home/Tabs.png" alt="" />#}
+{#												<h2>560.000 ريال</h2>#}
+{#												<p>توضیحات کوتاه محصول</p>#}
+{#												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#											</div>#}
+{##}
+{#										</div>#}
+{#									</div>#}
+{#								</div>#}
+{#								<div class="col-sm-3">#}
+{#									<div class="product-image-wrapper">#}
+{#										<div class="single-products">#}
+{#											<div class="productinfo text-center">#}
+{#												<img src="images/home/Tabs.png" alt="" />#}
+{#												<h2>560.000 ريال</h2>#}
+{#												<p>توضیحات کوتاه محصول</p>#}
+{#												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#											</div>#}
+{##}
+{#										</div>#}
+{#									</div>#}
+{#								</div>#}
+{#								<div class="col-sm-3">#}
+{#									<div class="product-image-wrapper">#}
+{#										<div class="single-products">#}
+{#											<div class="productinfo text-center">#}
+{#												<img src="images/home/Tabs.png" alt="" />#}
+{#												<h2>560.000 ريال</h2>#}
+{#												<p>توضیحات کوتاه محصول</p>#}
+{#												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#											</div>#}
+{##}
+{#										</div>#}
+{#									</div>#}
+{#								</div>#}
+{#							</div>#}
+{##}
+{#							<div class="tab-pane fade" id="Tab_004" >#}
+{#								<div class="col-sm-3">#}
+{#									<div class="product-image-wrapper">#}
+{#										<div class="single-products">#}
+{#											<div class="productinfo text-center">#}
+{#												<img src="images/home/Tabs.png" alt="" />#}
+{#												<h2>560.000 ريال</h2>#}
+{#												<p>توضیحات کوتاه محصول</p>#}
+{#												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#											</div>#}
+{##}
+{#										</div>#}
+{#									</div>#}
+{#								</div>#}
+{#								<div class="col-sm-3">#}
+{#									<div class="product-image-wrapper">#}
+{#										<div class="single-products">#}
+{#											<div class="productinfo text-center">#}
+{#												<img src="images/home/Tabs.png" alt="" />#}
+{#												<h2>560.000 ريال</h2>#}
+{#												<p>توضیحات کوتاه محصول</p>#}
+{#												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#											</div>#}
+{##}
+{#										</div>#}
+{#									</div>#}
+{#								</div>#}
+{#								<div class="col-sm-3">#}
+{#									<div class="product-image-wrapper">#}
+{#										<div class="single-products">#}
+{#											<div class="productinfo text-center">#}
+{#												<img src="images/home/Tabs.png" alt="" />#}
+{#												<h2>560.000 ريال</h2>#}
+{#												<p>توضیحات کوتاه محصول</p>#}
+{#												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#											</div>#}
+{##}
+{#										</div>#}
+{#									</div>#}
+{#								</div>#}
+{#								<div class="col-sm-3">#}
+{#									<div class="product-image-wrapper">#}
+{#										<div class="single-products">#}
+{#											<div class="productinfo text-center">#}
+{#												<img src="images/home/Tabs.png" alt="" />#}
+{#												<h2>560.000 ريال</h2>#}
+{#												<p>توضیحات کوتاه محصول</p>#}
+{#												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#											</div>#}
+{##}
+{#										</div>#}
+{#									</div>#}
+{#								</div>#}
+{#							</div>#}
+{##}
+{#							<div class="tab-pane fade" id="Tab_005" >#}
+{#								<div class="col-sm-3">#}
+{#									<div class="product-image-wrapper">#}
+{#										<div class="single-products">#}
+{#											<div class="productinfo text-center">#}
+{#												<img src="images/home/Tabs.png" alt="" />#}
+{#												<h2>560.000 ريال</h2>#}
+{#												<p>توضیحات کوتاه محصول</p>#}
+{#												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#											</div>#}
+{##}
+{#										</div>#}
+{#									</div>#}
+{#								</div>#}
+{#								<div class="col-sm-3">#}
+{#									<div class="product-image-wrapper">#}
+{#										<div class="single-products">#}
+{#											<div class="productinfo text-center">#}
+{#												<img src="images/home/Tabs.png" alt="" />#}
+{#												<h2>560.000 ريال</h2>#}
+{#												<p>توضیحات کوتاه محصول</p>#}
+{#												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#											</div>#}
+{##}
+{#										</div>#}
+{#									</div>#}
+{#								</div>#}
+{#								<div class="col-sm-3">#}
+{#									<div class="product-image-wrapper">#}
+{#										<div class="single-products">#}
+{#											<div class="productinfo text-center">#}
+{#												<img src="images/home/Tabs.png" alt="" />#}
+{#												<h2>560.000 ريال</h2>#}
+{#												<p>توضیحات کوتاه محصول</p>#}
+{#												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#											</div>#}
+{##}
+{#										</div>#}
+{#									</div>#}
+{#								</div>#}
+{#								<div class="col-sm-3">#}
+{#									<div class="product-image-wrapper">#}
+{#										<div class="single-products">#}
+{#											<div class="productinfo text-center">#}
+{#												<img src="images/home/Tabs.png" alt="" />#}
+{#												<h2>560.000 ريال</h2>#}
+{#												<p>توضیحات کوتاه محصول</p>#}
+{#												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>#}
+{#											</div>#}
+{##}
+{#										</div>#}
+{#									</div>#}
+{#								</div>#}
+{#							</div>#}
+{#						</div>#}
+{#					</div><!--/category-tab-->#}
+{##}
+{#				</div>#}
+{##}
+{#			</div>#}
+{#		</div>#}
+{#	</section>#}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="page-content-wrapper">
+      <!-- Hero Slides-->
+      <div class="hero-slides owl-carousel">
+            {% for slide in slider %}
+                <!-- Single Hero Slide-->
+                <div class="single-hero-slide" style="background-image: url({{ slide.image.url }});  background-position: center center; background-size: cover; background-repeat: no-repeat;" class="{{ forloop.first|yesno:'active,' }}">
+              <div class="slide-content h-100 d-flex align-items-center">
+                    <div class="container">
+                      <h4 class="text-white mb-0" data-animation="fadeInUp" data-delay="100ms" data-wow-duration="1000ms">
+                          {{ slide.title }}</h4>
+                      <p class="text-white" data-animation="fadeInUp" data-delay="400ms" data-wow-duration="1000ms">{{  slide.description }}</p><a class="btn btn-primary btn-sm" href="#" data-animation="fadeInUp" data-delay="800ms" data-wow-duration="1000ms">خرید</a>
+                    </div>
+                  </div>
+                </div>
+            {% endfor %}
+      </div>
+      <!-- Product Catagories-->
+      <div class="product-catagories-wrapper py-3">
+        <div class="container">
+          <div class="section-heading">
+            <h6 class="ml-1">دسته بندی محصولات</h6>
+          </div>
+          <div class="product-catagory-wrap">
+            <div class="row g-3">
+                {% for category in categories %}
+                    <!-- Single Catagory Card-->
+                    <div class="col-4">
+                        <div class="card catagory-card">
+                            <div class="card-body"><a href="{% url 'products:product-category' category.slug %}"><i class="lni lni-tshirt"></i><span>{{ category.title }}</span></a></div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Flash Sale Slide-->
+      <div class="flash-sale-wrapper">
+        <div class="container">
+          <div class="section-heading d-flex align-items-center justify-content-between">
+            <h6 class="ml-1">حراج</h6><a class="btn btn-primary btn-sm" href="flash-sale.html">مشاهده همه</a>
+          </div>
+          <!-- Flash Sale Slide-->
+          <div class="flash-sale-slide owl-carousel">
+            <!-- Single Flash Sale Card-->
+            <div class="card flash-sale-card">
+              <div class="card-body"><a href="single-product.html"><img src="img/product/1.png" alt=""><span class="product-title">چراغ میز سیاه</span>
+                  <p class="sale-price">ت7.99<span class="real-price">ت15</span></p><span class="progress-title">33٪ فروخته شده</span>
+                  <!-- Progress Bar-->
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 33%" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div></a></div>
+            </div>
+            <!-- Single Flash Sale Card-->
+            <div class="card flash-sale-card">
+              <div class="card-body"><a href="single-product.html"><img src="img/product/2.png" alt=""><span class="product-title">مبل مدرن</span>
+                  <p class="sale-price">ت14<span class="real-price">ت21</span></p><span class="progress-title">57٪ فروخته شده</span>
+                  <!-- Progress Bar-->
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 57%" aria-valuenow="57" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div></a></div>
+            </div>
+            <!-- Single Flash Sale Card-->
+            <div class="card flash-sale-card">
+              <div class="card-body"><a href="single-product.html"><img src="img/product/3.png" alt=""><span class="product-title">صندلی باغ کلاسیک</span>
+                  <p class="sale-price">ت36<span class="real-price">ت49</span></p><span class="progress-title">99٪ فروخته شده</span>
+                  <!-- Progress Bar-->
+                  <div class="progress">
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div></a></div>
+            </div>
+            <!-- Single Flash Sale Card-->
+            <div class="card flash-sale-card">
+              <div class="card-body"><a href="single-product.html"><img src="img/product/1.png" alt=""><span class="product-title">چراغ میز سیاه</span>
+                  <p class="sale-price">ت7.99<span class="real-price">ت15</span></p><span class="progress-title">33٪ فروخته شده</span>
+                  <!-- Progress Bar-->
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 33%" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div></a></div>
+            </div>
+            <!-- Single Flash Sale Card-->
+            <div class="card flash-sale-card">
+              <div class="card-body"><a href="single-product.html"><img src="img/product/2.png" alt=""><span class="product-title">مبل مدرن</span>
+                  <p class="sale-price">ت14<span class="real-price">ت21</span></p><span class="progress-title">57٪ فروخته شده</span>
+                  <!-- Progress Bar-->
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 57%" aria-valuenow="57" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div></a></div>
+            </div>
+            <!-- Single Flash Sale Card-->
+            <div class="card flash-sale-card">
+              <div class="card-body"><a href="single-product.html"><img src="img/product/3.png" alt=""><span class="product-title">صندلی باغ کلاسیک</span>
+                  <p class="sale-price">ت36<span class="real-price">ت49</span></p><span class="progress-title">99٪ فروخته شده</span>
+                  <!-- Progress Bar-->
+                  <div class="progress">
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div></a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Top Products-->
+      <div class="top-products-area clearfix py-3">
+        <div class="container">
+          <div class="section-heading d-flex align-items-center justify-content-between">
+            <h6 class="ml-1">پربازدید ترین محصولات</h6><a class="btn btn-danger btn-sm" href="shop-grid.html">مشاهده همه</a>
+          </div>
+          <div class="row g-3">
+            <!-- Single Top Product Card-->
+            {% for product in most_visited %}
+                <div class="col-6 col-md-4 col-lg-3">
+                {% include 'blog/partials/products_component_partial.html' with product=product %}
+                </div>
+
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      <!-- Cool Facts Area-->
+      <div class="cta-area">
+        <div class="container">
+          <div class="cta-text p-4 p-lg-5" style="background-image: url(img/bg-img/24.jpg)">
+            <h4>فروش زمستانی 50٪ تخفیف</h4>
+            <p>سها یک کاربرد چند منظوره ، خلاقانه و <br> الگوی موبایل مدرن.</p><a class="btn btn-danger" href="#">خرید</a>
+          </div>
+        </div>
+      </div>
+
+              <!-- Top Products-->
+      <div class="top-products-area clearfix py-3">
+        <div class="container">
+          <div class="section-heading d-flex align-items-center justify-content-between">
+            <h6 class="ml-1">پرطرفدار ترین محصولات</h6><a class="btn btn-danger btn-sm" href="shop-grid.html">مشاهده همه</a>
+          </div>
+          <div class="row g-3">
+            <!-- Single Top Product Card-->
+            {% for product in best_ratings %}
+                <div class="col-6 col-md-4 col-lg-3">
+                {% include 'blog/partials/products_component_partial.html' with product=product %}
+                </div>
+            {% endfor %}
+          </div>
+      <!-- Weekly Best Sellers-->
+      <div class="weekly-best-seller-area py-3">
+        <div class="container">
+          <div class="section-heading d-flex align-items-center justify-content-between">
+            <h6 class="pl-1">پرفروش ترین های هفتگی</h6><a class="btn btn-success btn-sm" href="shop-list.html">مشاهده همه</a>
+          </div>
+          <div class="row g-3">
+            <!-- Single Weekly Product Card-->
+            <div class="col-12 col-md-6">
+              <div class="card weekly-product-card">
+                <div class="card-body d-flex align-items-center">
+                  <div class="product-thumbnail-side"><span class="badge badge-success">حراج</span><a class="wishlist-btn" href="#"><i class="lni lni-heart"></i></a><a class="product-thumbnail d-block" href="single-product.html"><img src="img/product/10.png" alt=""></a></div>
+                  <div class="product-description"><a class="product-title d-block" href="single-product.html">مبل مدرن قرمز</a>
+                    <p class="sale-price"><i class="lni lni-dollar"></i>ت64<span>ت89</span></p>
+                    <div class="product-rating"><i class="lni lni-star-filled"></i>4.88 (39)</div><a class="btn btn-success btn-sm add2cart-notify" href="#"><i class="mr-1 lni lni-cart"></i>خرید الان</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Single Weekly Product Card-->
+            <div class="col-12 col-md-6">
+              <div class="card weekly-product-card">
+                <div class="card-body d-flex align-items-center">
+                  <div class="product-thumbnail-side"><span class="badge badge-primary">حراج</span><a class="wishlist-btn" href="#"><i class="lni lni-heart"></i></a><a class="product-thumbnail d-block" href="single-product.html"><img src="img/product/7.png" alt=""></a></div>
+                  <div class="product-description"><a class="product-title d-block" href="single-product.html">صندلی اداری</a>
+                    <p class="sale-price"><i class="lni lni-dollar"></i>ت100<span>ت160</span></p>
+                    <div class="product-rating"><i class="lni lni-star-filled"></i>4.82 (125)</div><a class="btn btn-success btn-sm add2cart-notify" href="#"><i class="mr-1 lni lni-cart"></i>خرید الان</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Single Weekly Product Card-->
+            <div class="col-12 col-md-6">
+              <div class="card weekly-product-card">
+                <div class="card-body d-flex align-items-center">
+                  <div class="product-thumbnail-side"><span class="badge badge-danger">-10%</span><a class="wishlist-btn" href="#"><i class="lni lni-heart"></i></a><a class="product-thumbnail d-block" href="single-product.html"><img src="img/product/12.png" alt=""></a></div>
+                  <div class="product-description"><a class="product-title d-block" href="single-product.html">عینک آفتاب</a>
+                    <p class="sale-price"><i class="lni lni-dollar"></i>$24<span>$32</span></p>
+                    <div class="product-rating"><i class="lni lni-star-filled"></i>4.79 (63)</div><a class="btn btn-success btn-sm add2cart-notify" href="#"><i class="mr-1 lni lni-cart"></i>خرید الان</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Single Weekly Product Card-->
+            <div class="col-12 col-md-6">
+              <div class="card weekly-product-card">
+                <div class="card-body d-flex align-items-center">
+                  <div class="product-thumbnail-side"><span class="badge badge-warning">جدید</span><a class="wishlist-btn" href="#"><i class="lni lni-heart"></i></a><a class="product-thumbnail d-block" href="single-product.html"><img src="img/product/13.png" alt=""></a></div>
+                  <div class="product-description"><a class="product-title d-block" href="single-product.html">ساعت دیواری</a>
+                    <p class="sale-price"><i class="lni lni-dollar"></i>ت31<span>ت47</span></p>
+                    <div class="product-rating"><i class="lni lni-star-filled"></i>4.99 (7)</div><a class="btn btn-success btn-sm add2cart-notify" href="#"><i class="mr-1 lni lni-cart"></i>خرید الان</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Discount Coupon Card-->
+      <div class="container">
+        <div class="card discount-coupon-card border-0">
+          <div class="card-body">
+            <div class="coupon-text-wrap d-flex align-items-center p-3">
+              <h5 class="text-white pr-3 mb-0">دریافت 20٪ <br> تخفیف</h5>
+              <p class="text-white pl-3 mb-0">برای دریافت تخفیف<strong class="px-1">GET20</strong>را در صفحه پرداخت وارد کنید</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Featured Products Wrapper-->
+      <div class="featured-products-wrapper py-3">
+        <div class="container">
+          <div class="section-heading d-flex align-items-center justify-content-between">
+            <h6 class="pl-1">محصولات ویژه</h6><a class="btn btn-warning btn-sm" href="featured-products.html">مشاهده همه</a>
+          </div>
+          <div class="row g-3">
+            <!-- Featured Product Card-->
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="card featured-product-card">
+                <div class="card-body"><span class="badge badge-warning custom-badge"><i class="lni lni-star"></i></span>
+                  <div class="product-thumbnail-side"><a class="wishlist-btn" href="#"><i class="lni lni-heart"></i></a><a class="product-thumbnail d-block" href="single-product.html"><img src="img/product/14.png" alt=""></a></div>
+                  <div class="product-description"><a class="product-title d-block" href="single-product.html">اسکیت بورد آبی</a>
+                    <p class="sale-price">ت64<span>ت89</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Featured Product Card-->
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="card featured-product-card">
+                <div class="card-body"><span class="badge badge-warning custom-badge"><i class="lni lni-star"></i></span>
+                  <div class="product-thumbnail-side"><a class="wishlist-btn" href="#"><i class="lni lni-heart"></i></a><a class="product-thumbnail d-block" href="single-product.html"><img src="img/product/15.png" alt=""></a></div>
+                  <div class="product-description"><a class="product-title d-block" href="single-product.html">کیف مسافرتی</a>
+                    <p class="sale-price">ت64<span>ت89</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Featured Product Card-->
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="card featured-product-card">
+                <div class="card-body"><span class="badge badge-warning custom-badge"><i class="lni lni-star"></i></span>
+                  <div class="product-thumbnail-side"><a class="wishlist-btn" href="#"><i class="lni lni-heart"></i></a><a class="product-thumbnail d-block" href="single-product.html"><img src="img/product/16.png" alt=""></a></div>
+                  <div class="product-description"><a class="product-title d-block" href="single-product.html">تی شرت های نخی</a>
+                    <p class="sale-price">ت64<span>ت89</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Featured Product Card-->
+            <div class="col-6 col-md-4 col-lg-3">
+              <div class="card featured-product-card">
+                <div class="card-body"><span class="badge badge-warning custom-badge"><i class="lni lni-star"></i></span>
+                  <div class="product-thumbnail-side"><a class="wishlist-btn" href="#"><i class="lni lni-heart"></i></a><a class="product-thumbnail d-block" href="single-product.html"><img src="img/product/6.png" alt=""></a></div>
+                  <div class="product-description"><a class="product-title d-block" href="single-product.html">چراغ سقف </a>
+                    <p class="sale-price">ت64<span>ت89</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Night Mode View Card-->
+      <div class="night-mode-view-card pb-3">
+        <div class="container">
+          <div class="card settings-card">
+            <div class="card-body">
+              <div class="single-settings d-flex align-items-center justify-content-between">
+                <div class="title"><i class="lni lni-night"></i><span>حالت شب</span></div>
+                <div class="data-content">
+                  <div class="toggle-button-cover">
+                    <div class="button r">
+                      <input class="checkbox" id="darkSwitch" type="checkbox">
+                      <div class="knobs"></div>
+                      <div class="layer"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Internet Connection Status-->
+    <div class="internet-connection-status" id="internetStatus"></div>
+
+
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% load render_partial %}
+
+
+
+{% block content %}
+
+        <div class="page-content-wrapper">
+        {% if category.image %}
+            <!-- Catagory Single Image-->
+            <div class="catagory-single-img" style="background-image: url({{  category.image.url }}); background-position: center center; background-size: contain; background-repeat: no-repeat;"></div>
+        {% endif %}
+      <!-- Product Catagories-->
+      {% if sub_category %}
+          <div class="product-catagories-wrapper py-3">
+        <div class="container">
+          <div class="section-heading">
+            <h6 class="ml-1">دسته بندی های این دسته</h6>
+          </div>
+          <div class="product-catagory-wrap">
+            <div class="row g-3">
+              {% for sub_cat in sub_category %}
+                  <!-- Single Catagory Card-->
+                  <div class="col-4">
+                    <div class="card catagory-card">
+                      <div class="card-body"><a href="{% url 'products:product-category' sub_cat.slug %}"><i class="lni lni-heart"></i><span>{{ sub_cat.title }}</span></a></div>
+                    </div>
+                  </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+        {% if object_list %}
+            <!-- Top Products-->
+            <div class="top-products-area pb-3">
+                <div class="container">
+                  <div class="section-heading d-flex align-items-center justify-content-between">
+                    <h6 class="ml-1 mt-2">محصولات دسته بندی: {{ category.title }}</h6>
+                  </div>
+                  <div class="row g-3">
+        {#            <!-- Single Top Product Card-->#}
+        {#            <div class="col-6 col-md-4 col-lg-3">#}
+        {#              <div class="card top-product-card">#}
+        {#                <div class="card-body"><span class="badge badge-success">Sale</span><a class="wishlist-btn" href="#"><i class="lni lni-heart"></i></a><a class="product-thumbnail d-block" href="single-product.html"><img class="mb-2" src="img/product/11.png" alt=""></a><a class="product-title d-block" href="single-product.html">Beach Cap</a>#}
+        {#                  <p class="sale-price">$13<span>$42</span></p>#}
+        {#                  <div class="product-rating"><i class="lni lni-star-filled"></i><i class="lni lni-star-filled"></i><i class="lni lni-star-filled"></i><i class="lni lni-star-filled"></i><i class="lni lni-star-filled"></i></div><a class="btn btn-success btn-sm add2cart-notify" href="#"><i class="lni lni-plus"></i></a>#}
+        {#                </div>#}
+        {#              </div>#}
+        {#            </div>#}
+
+                      {% for product in object_list %}
+                          <!-- Single Catagory Card-->
+                          <div class="col-6 col-md-4 col-lg-3">
+                              {% include 'blog/partials/products_component_partial.html' with product=product %}
+                          </div>
+                      {% endfor %}
+                  </div>
+                </div>
+              </div>
+        {% else %}
+            <div class="top-products-area pb-3">
+                <div class="container">
+                  <div class="section-heading d-flex align-items-center justify-content-center">
+                    <h6 class="ml-1 mt-5">هیچ محصولی در این دسته بندی موجود نیست.</h6>
+                  </div>
+                </div>
+              </div>
+        {% endif %}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'blog/base.html' %}
+{% load gravatar %}
+
+
+{% block content %}
+
+        <div class="page-content-wrapper">
+          <div class="container">
+            <!-- Profile Wrapper-->
+            <div class="profile-wrapper-area py-3">
+              <!-- User Information-->
+              <div class="card user-info-card">
+                <div class="card-body p-4 d-flex align-items-center">
+                  <div class="user-profile mr-3"><img src="{% gravatar_url user.email 150 %}" alt="{{ user.email }}"></div>
+                  <div class="user-info">
+                    <p class="mb-0 text-white mr-1">{{ user.username }}</p>
+                  </div>
+                </div>
+              </div>
+              <!-- User Meta Data-->
+              <div class="card user-data-card">
+                <div class="card-body">
+                  <div class="single-profile-data d-flex align-items-center justify-content-between">
+                    <div class="title d-flex align-items-center"><i class="lni lni-user"></i><span>نام کاربری</span></div>
+                    <div class="data-content">{{ user.username }}</div>
+                  </div>
+                  <div class="single-profile-data d-flex align-items-center justify-content-between">
+                    <div class="title d-flex align-items-center"><i class="lni lni-user"></i><span>نام کامل</span></div>
+                    <div class="data-content">{{  user.get_full_name }}</div>
+                  </div>
+                  <div class="single-profile-data d-flex align-items-center justify-content-between">
+                    <div class="title d-flex align-items-center"><i class="lni lni-phone"></i><span>تلفن</span></div>
+                    <div class="data-content">{{  user.phone }}</div>
+                  </div>
+                  <div class="single-profile-data d-flex align-items-center justify-content-between">
+                    <div class="title d-flex align-items-center"><i class="lni lni-envelope"></i><span>ایمیل</span></div>
+                    <div class="data-content">{{ user.email }}</div>
+                  </div>
+                  <div class="single-profile-data d-flex align-items-center justify-content-between">
+                    <div class="title d-flex align-items-center"><i class="lni lni-map-marker"></i><span>آدرس</span></div>
+                    <div class="data-content">{{  user.address }}</div>
+                  </div>
+                  <div class="single-profile-data d-flex align-items-center justify-content-between">
+                    <div class="title d-flex align-items-center"><i class="lni lni-star"></i><span>سفارش من</span></div>
+                    <div class="data-content"><a class="btn btn-danger btn-sm" href="my-order.html">مشاهده</a></div>
+                  </div>
+                </div>
+              </div>
+              <!-- Edit Profile-->
+              <div class="edit-profile-btn mt-3"><a class="btn btn-info w-100" href="{% url 'account:edit_profile' %}"><i class="lni lni-pencil mr-2"></i>ویرایش حساب کاربری</a></div>
+            </div>
+          </div>
+        </div>
+
+{% endblock %}

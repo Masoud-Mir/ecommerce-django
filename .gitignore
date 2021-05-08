@@ -1,0 +1,26 @@
+.idea/
+
+#migrations
+account/migrations
+comment/migrations
+categories/migrations
+products/migrations
+shop/migrations
+order/migrations
+
+#virtual enviroment
+venv/
+__pycache__/
+
+#credentials
+.env
+
+#database
+db.sqlite3
+
+
+#static files
+files/
+static/
+media/
+TanTan/static

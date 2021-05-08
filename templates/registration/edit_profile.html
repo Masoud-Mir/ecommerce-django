@@ -1,0 +1,64 @@
+{% extends 'blog/base.html' %}
+{% load widget_tweaks %}
+{% load gravatar %}
+
+{% block content %}
+
+        <div class="page-content-wrapper">
+      <div class="container">
+        <!-- Profile Wrapper-->
+        <div class="profile-wrapper-area py-3">
+          <!-- User Information-->
+          <div class="card user-info-card">
+            <div class="card-body p-4 d-flex align-items-center">
+              <div class="user-profile mr-3"><img src="{% gravatar_url user.email 150 %}" alt="{{ user.email }}">
+                <div class="change-user-thumb">
+                  <form>
+                    <input class="form-control-file" type="file">
+                    <button><i class="lni lni-pencil"></i></button>
+                  </form>
+                </div>
+              </div>
+              <div class="user-info">
+                <p class="mb-0 text-white mr-1">{{ user.username }}</p>
+              </div>
+            </div>
+          </div>
+          <!-- User Meta Data-->
+          <div class="card user-data-card">
+            <div class="card-body">
+              <form action="{% url 'account:edit_profile' %}" method="post">
+                  {% csrf_token %}
+                <div class="mb-3">
+                  <div class="title mb-2"><i class="lni lni-user"></i><span>نام کاربری</span></div>
+                    {{ form.username|add_class:"form-control" }}
+                </div>
+                <div class="mb-3">
+                  <div class="title mb-2"><i class="lni lni-user"></i><span>نام</span></div>
+                  {{ form.first_name|add_class:"form-control" }}
+                </div>
+                <div class="mb-3">
+                  <div class="title mb-2"><i class="lni lni-user"></i><span>نام خانوادگی</span></div>
+                  {{ form.last_name|add_class:"form-control" }}
+                </div>
+                <div class="mb-3">
+                  <div class="title mb-2"><i class="lni lni-phone"></i><span>شماره تماس</span></div>
+                  {{ form.phone|add_class:"form-control" }}
+                </div>
+                <div class="mb-3">
+                  <div class="title mb-2"><i class="lni lni-envelope"></i><span>ایمیل</span></div>
+                  {{ form.email|add_class:"form-control" }}
+                </div>
+                <div class="mb-3">
+                  <div class="title mb-2"><i class="lni lni-map-marker"></i><span>آدرس</span></div>
+                  {{ form.address|add_class:"form-control" }}
+                </div>
+                <button class="btn btn-success w-100" type="submit">ذخیره اطلاعات</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+{% endblock %}

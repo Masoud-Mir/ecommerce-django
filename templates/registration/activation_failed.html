@@ -1,0 +1,25 @@
+{% extends 'registration/registration_base.html' %} {% load static %} {% block content %}
+
+
+
+        <section class="sign-in">
+            <div class="container">
+                <div class="signin-content">
+                    <div class="signin-image">
+                        <figure><img src="{% static 'img/tantan-logo.jpg' %}" alt="sing up image"></figure>
+                    </div>
+
+                    <div class="signin-form d-flex justify-content-center align-items-center">
+                        <div class="alert alert-warning d-flex justify-content-center align-items-center" role="alert">
+                            <p>لینک فعال سازی منقضی شده است لطفا دوباره امتحان کنید.</p>
+                        </div>
+                        <div>
+                            <a href="{% url 'register' %}" class="btn btn-primary" style='text-decoration: none;'>تلاش مجدد</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+{% endblock %}
